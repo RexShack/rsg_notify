@@ -1,0 +1,12 @@
+RegisterNetEvent('rsg_notify:client:notifiy')
+AddEventHandler('rsg_notify:client:notifiy', function(message)
+	exports['rsg_notify']:DisplayNotification(message, 5000)
+end)
+
+RegisterNetEvent('rsg_notify:client:bottom_notifiy')	
+AddEventHandler('rsg_notify:client:bottom_notifiy', function(txt)
+    SetTextScale(0.5, 0.5)
+    local str = Citizen.InvokeNative(0xFA925AC00EB830B9, 10, "LITERAL_STRING", txt, Citizen.ResultAsLong())
+    Citizen.InvokeNative(0xFA233F8FE190514C, str)
+    Citizen.InvokeNative(0xE9990552DEC71600)
+end)
